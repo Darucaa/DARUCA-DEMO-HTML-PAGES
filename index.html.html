@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>John Paul Daruca | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
+    body {background: linear-gradient(135deg,#0f172a,#1e293b);color:white;line-height:1.6;scroll-behavior:smooth;}
+    
+    /* NAVBAR */
+    nav{background:rgba(0,0,0,0.6);padding:15px 30px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;animation:fadeInDown 1s ease;}
+    nav h1{color:#38bdf8;}
+    nav ul{list-style:none;display:flex;gap:20px;}
+    nav a{color:white;text-decoration:none;font-weight:500;transition:color 0.3s;}
+    nav a:hover{color:#38bdf8;}
+
+    /* HERO */
+    .hero{height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;}
+    .hero h2{font-size:3rem;margin-bottom:10px;animation:slideInLeft 1s ease;}
+    .hero span{color:#38bdf8;}
+    .hero p{color:#cbd5f5;margin-bottom:20px;font-size:1.2rem;min-height:30px;}
+    .btn{background:#38bdf8;color:black;padding:12px 30px;border-radius:30px;text-decoration:none;font-weight:bold;transition:0.3s;}
+    .btn:hover{background:white;transform:scale(1.05);}
+
+    /* SECTIONS */
+    section{max-width:900px;margin:auto;padding:60px 20px;opacity:0;transform:translateY(30px);transition:opacity 1s ease, transform 1s ease;}
+    section.show{opacity:1;transform:translateY(0);}
+    section h2{color:#38bdf8;margin-bottom:20px;font-size:2rem;text-align:center;position:relative;}
+    section h2::after{content:"";width:60px;height:4px;background:#38bdf8;display:block;margin:12px auto 0;border-radius:5px;}
+
+    /* ABOUT ME */
+    .about-box{max-width:700px;margin:auto;text-align:center;background:rgba(255,255,255,0.08);padding:40px 30px;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.3);transition:transform 0.3s, box-shadow 0.3s;}
+    .about-box:hover{transform:translateY(-5px);box-shadow:0 30px 50px rgba(0,0,0,0.5);}
+    .about-box p{color:#cbd5f5;font-size:1.05rem;}
+    .about-box ul{list-style:none;margin-top:20px;padding-left:0;}
+    .about-box ul li{margin-bottom:8px;}
+
+    /* PROJECTS */
+    .project-card,.skill-box,.contact-box{
+      background:rgba(255,255,255,0.08);
+      padding:20px;
+      border-radius:12px;
+      margin-bottom:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      position:relative;
+      border-left:6px solid #38bdf8;
+      overflow:hidden;
+      transition:0.3s;
+    }
+    .project-card::before,.skill-box::before,.contact-box::before{
+      content:"";position:absolute;left:0;top:0;width:6px;height:100%;background:#38bdf8;transform:translateX(-100%);transition:transform 0.7s ease;
+    }
+    .project-card.show::before,.skill-box.show::before,.contact-box.show::before{transform:translateX(0);}
+    .project-card:hover,.skill-box:hover,.contact-box:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,0.4);}
+    .project-card a,.contact-box a{color:#38bdf8;text-decoration:none;font-weight:bold;}
+
+    /* SKILLS */
+    .skills{display:flex;flex-direction:column;gap:15px;max-width:600px;margin:auto;}
+    .skill-box{display:flex;justify-content:space-between;align-items:center;}
+    .skill-title{font-weight:bold;font-size:1.1rem;}
+    .skill-desc{font-size:0.9rem;color:#cbd5f5;text-align:right;}
+
+    /* CONTACT */
+    .contact-box{text-align:center;cursor:pointer;}
+    .contact-box:hover{background:#38bdf8;color:black;}
+    
+    /* FOOTER */
+    footer{text-align:center;padding:20px;background:rgba(0,0,0,0.6);color:#cbd5f5;animation:fadeInUp 1s ease;}
+
+    /* Animations */
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes slideInLeft{from{opacity:0;transform:translateX(-50px);}to{opacity:1;transform:translateX(0);}}
+    
+    /* RESPONSIVE */
+    @media(max-width:768px){.hero h2{font-size:2.2rem;}.skill-box{flex-direction:column;align-items:flex-start;gap:5px;}.skill-desc{text-align:left;}}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h1>John Paul Daruca</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h2>Hello, I’m <span>John Paul Daruca</span></h2>
+    <p id="typing-text"></p>
+    <a href="#projects" class="btn">View My Work</a>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="fade-section">
+    <div class="about-box">
+      <h2>About Me</h2>
+      <p>I am John Paul Daruca, a student passionate about web development and data analytics. I enjoy creating clean, modern websites and working with data to find meaningful insights.</p>
+      <ul>
+        <li>✔ Strong problem-solving and analytical skills</li>
+        <li>✔ Collaborative and team-oriented mindset</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="fade-section">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Child Labor Data Analytics Website</h3>
+      <p>Data visualization website focused on child labor in the Philippines.</p>
+      <a href="#">View on GitHub</a>
+    </div>
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>My personal portfolio built using HTML and CSS.</p>
+      <a href="#">View on GitHub</a>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="fade-section">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-box">
+        <div class="skill-title">Problem Solving</div>
+        <div class="skill-desc">Able to tackle coding challenges efficiently</div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-title">Coding Basics</div>
+        <div class="skill-desc">Good understanding of HTML, CSS, Python</div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-title">Data Analytics</div>
+        <div class="skill-desc">Experience analyzing data and visualizations</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-section">
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <a href="mailto:yourname@email.com">Email: darucajohnpaul25@email.com</a>
+    </div>
+    <div class="contact-box">
+      <a href="https://github.com/yourusername" target="_blank">GitHub: Darucaa</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>© 2026 John Paul Daruca</footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Typing effect
+    const textEl = document.getElementById("typing-text");
+    const texts = ["Aspiring Web Developer", "Data Analytics Enthusiast"];
+    let i = 0, j = 0;
+    let currentText = "", isDeleting=false;
+
+    function type(){
+      if(i >= texts.length) i=0;
+      currentText = texts[i];
+      textEl.innerHTML = currentText.substring(0,j);
+      if(!isDeleting){ j++; if(j>currentText.length){ isDeleting=true; setTimeout(type,800); return; } }
+      else{ j--; if(j===0){ isDeleting=false;i++; } }
+      setTimeout(type,100);
+    }
+    type();
+
+    // Fade-in sections + side bar animation
+    const sections = document.querySelectorAll('.fade-section');
+    const cards = document.querySelectorAll('.project-card, .skill-box, .contact-box');
+
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          // animate inner cards
+          const innerCards = entry.target.querySelectorAll('.project-card, .skill-box, .contact-box');
+          innerCards.forEach(card=>card.classList.add('show'));
+        }
+      });
+    },{threshold:0.2});
+    sections.forEach(section=>observer.observe(section));
+  </script>
+
+</body>
+</html>
